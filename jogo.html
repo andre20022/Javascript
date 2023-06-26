@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Estourando balões</title>
+        <style>
+           
+			#cronometro{
+                background-image: url("imagens/cronometro.png");
+				background-repeat: no-repeat;
+				background-position: center bottom;
+				width: 120px;
+				text-align: center;
+                height: 120px;
+				background-size: 120px 120px;
+			}
+			#numero_segundos{
+				color: red;
+				font-size: 27px;
+				font-weight: bold;
+			}
+			#container{
+				height: 500px;
+				display: inline-block;
+				/*border: 1px solid black;*/
+			}
+			#cenario{
+				height: 500px;
+				width: 700px;
+				overflow: hidden;
+				display: inline-block;
+				background-image: url("imagens/cenario.png");
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center bottom;
+			}
+			.numero_baloes{
+				font-size: 27px;
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+			<div id="container">
+				<table>
+					<tr>
+						<td><img src="imagens/balao_azul_grande.png" alt="Balao azul"></td>
+						<td><span id="qtde_baloes" class="numero_baloes"></span></td>
+					</tr>
+					<tr>
+						<td><img src="imagens/balao_azul_grande_estourado.png" alt="Balao azul estourando"></td>
+						<td class="numero_baloes"><span id="baloes_estourados"></span></td>
+					</tr>
+					<tr>
+						<td id="cronometro" colspan="2"><span id="numero_segundos"></span></td>
+					</tr>
+				</table>
+			</div>
+			<div id="cenario"></div>
+	</body>
+	<script src="jogo.js"></script>
+</html>
