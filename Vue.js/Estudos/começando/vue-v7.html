@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudo - Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>Primeira lista</h1>
+        <ul>
+            <li v-for="cor in cores">{{ cor }}</li>
+        </ul>
+        <ul>
+            <li v-for="(cor, index) in cores">{{ index }} - {{ cor }}</li>
+        </ul>
+        <hr>
+        <h1>Segunda lista</h1>
+        <ul>
+            <li v-for="pessoa in pessoas">
+                <div v-for="(valor, chave, index) in pessoa">({{ index }}) {{ chave }}: {{ valor }}</div>
+            </li>
+        </ul>
+        <hr>
+        <h1>Terceira lista</h1>
+        <div v-for="n in 10">{{ n }}</div>
+    </div>
+    <script>
+        
+        new Vue({
+            el: '#app',
+            data: {
+                cores: ['Vermelho', 'Azul', 'Amarelo', 'Verde', 'Roxo'],
+                pessoas:[
+                   {nome: "Carla", idade: 10, peso: 60},
+                   {nome: "ludmilo", idade: 4, peso: 45}
+                ]    
+            } 
+        });
+    </script>
+</body>
+</html>

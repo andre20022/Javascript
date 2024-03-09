@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudo - Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- sintaxe reduxida v-on:click = @click e v-bind:chave = :chave -->
+        <button v-on:click="aumenta">Aumentar</button>
+        <button v-on:click="contador++">Aumentar diff</button>
+        <button v-on:click="diminuir">Diminuir</button>
+        <p>{{ valor }} | {{ contador }}</p>
+        <p>{{ resultado }}</p>
+    </div>
+    <script>
+        
+        new Vue({
+            el: '#app',
+            data: {
+                valor: 0,
+                contador: 0
+            },
+            // funcao computada ajuda a diminuir o processamento desnecessario do Vue
+            // quando houver mudança nas propriedades
+            computed: {
+                resultado() {
+                    console.log('entrou function');
+                    if(this.valor >= 5){
+                        return 'Maior igual a 5';
+                    }else{
+                        return 'Menor que 5';
+                    }
+                }
+            },
+            // watch serve para monitorar as mudanças nas propriedades do Vue
+            watch: {
+                contador(newValue, oldValue) {
+                    console.log(newValue, oldValue);
+                }
+            },
+            methods: {
+                aumenta: function(){
+                    this.valor++;
+                },
+                diminuir: function(){
+                    this.valor--;
+                }
+                // resultado() {
+                //     console.log('entrou function');
+                //     if(this.valor >= 5){
+                //         return 'Maior igual a 5';
+                //     }else{
+                //         return 'Menor que 5';
+                //     }
+                // }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudo - Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        #app{
+            display: flex;
+            justify-content: space-around;
+        }
+        .demo{
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+        }
+        .c1{
+            background-color: red;
+        }
+        .c2{
+            background-color: green;
+        }
+        .c3{
+            background-color: blue;
+        }
+        .borderC{
+            border: solid 2px #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="demo" @click="aplicarC1 = !aplicarC1" :class="{c2: aplicarC1}"></div> 
+        <div class="demo"></div>
+        <div class="demo" :class="[border, cor]"></div>
+    </div>
+    <script>
+        
+        new Vue({
+            el: '#app',
+            data: {
+               aplicarC1: false,
+               border: 'borderC',
+               cor: 'c3'
+            } 
+        });
+    </script>
+</body>
+</html>

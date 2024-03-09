@@ -1,0 +1,19 @@
+{
+  "name": "props",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.3.4",
+    "vue-cli-plugin-electron-builder": "^2.1.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.4.0",
+    "electron": "^27.0.3",
+    "vite": "^4.4.11"
+  }
+}

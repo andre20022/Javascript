@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudo - Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app1">
+      
+    </div>
+    <script>
+        
+        let vm1 = new Vue({
+            template: `
+                <div>
+                    <h1>Iniciando estrutura por atributo template</h1>
+                    {{ titulo1 }} - {{ hello }}
+                </div>
+            `,
+            data: {
+               titulo1: "teste 1",
+               hello: "Gerenciado iniciação de instancia"
+            }
+        });
+
+        vm1.$mount("#app1");
+
+    </script>
+</body>
+</html>

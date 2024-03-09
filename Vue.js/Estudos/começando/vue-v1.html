@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudo - Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <span>{{ mensagem }}</span><br>
+        <!-- v-once - server para que VUE só verifique o elemento uma unica vez -->
+        <button v-on:click="clicar">conta: {{ num }}</button>
+        <p v-on:mouseover="atualizaMouse">Mouse {{ x }} e {{ y }}</p>
+        <div v-html="htmlLayout"></div>
+        <div>
+            <!-- Como colocar valores nos atributos HTML vindos do VUE -->
+            <a v-bind:href="link">Google</a><br>
+        </div>
+        <button v-on:click="contarFive(5, $event)">Conta de 5: {{ five }}</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                mensagem: 'Testando Vue',
+                num: 0,
+                five: 0,
+                x: 0,
+                y: 0,
+                link: 'https://www.google.com.br',
+                htmlLayout: '<h2>Titulo do Vue.js</h2>'
+            },
+            methods: {
+                clicar: function(){
+                    this.num++;
+                },
+                atualizaMouse: function(e){
+                    this.x = e.clientX;
+                    this.y = e.clientY;
+                },
+                contarFive: function(num, e){
+                    this.five += num;
+                    console.log(e);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

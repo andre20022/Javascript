@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudo - Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-if="logado">Usuário logado: {{ nome }}</p>
+        <p v-else-if="anonimo">Navegando como anonimo</p>
+        <p v-else>Nenhum usuario logado</p>
+        <button @click="logado = !logado" type="button">{{ logado ? 'Sair': 'Entrar'}}</button>
+        <input type="checkbox" v-model="anonimo">
+    </div>
+    <script>
+        
+        new Vue({
+            el: '#app',
+            data: {
+               nome: 'Andre',
+               logado: false,
+               anonimo: false
+            } 
+        });
+    </script>
+</body>
+</html>

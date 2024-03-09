@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudo - Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <h1>{{ titulo }}</h1>
+       <button @click="titulo += '#'">Alterar</button>
+       <button @click="$destroy()">Destruir</button>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                titulo: "Ciclo de vida VUE"
+            },
+            beforeCreate() {
+                console.log("Antes de criar");
+            },
+            created() {
+                console.log("Criado");
+            },
+            beforeMount() {
+                console.log("Antes de monta estrutura DOM");
+            },
+            mounted() {
+                console.log("DOM criado");
+            },
+            beforeUpdate() {
+                console.log("Antes da atualização");
+            },
+            updated() {
+                console.log("Atualizado");
+            },
+            beforeDestroy() {
+                console.log("Antes de ser destruido");
+            },
+            destroyed() {
+                console.log("Destruido"); 
+            },
+        });
+    </script>
+</body>
+</html>

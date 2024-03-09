@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matador de Monstros</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<div id="app">
+    <div class="container">
+        <div class="row mt-5 justify-content-center text-center">
+            <div class="col-5 mt-5 me-4">
+                <h1 class="fs-3">Jogador</h1>
+                <div>
+                    <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar bg-success" :class="{ 'bg-danger': lifePlay < 20 }" :style="{width: `${lifePlay}%`}"></div>
+                    </div>
+                    {{ lifePlay }}%
+                </div>
+            </div>
+            <div class="col-5 mt-5 ms-4">
+                <h1 class="fs-3">Monstro</h1>
+                <div>
+                    <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar bg-success" :class="{ 'bg-danger': lifeMost < 20 }" :style="{width: `${lifeMost}%`}"></div>
+                    </div>
+                    {{ lifeMost }}%
+                </div>
+            </div>
+        </div>
+        <div v-if="hasResult" class="row text-center result">
+            <div v-if="lifeMost === 0" class="text-success fw-bold my-5 border border-3 border-success rounded p-3">Vooe ganhou!!! :)</div>
+            <div v-else class="text-danger fw-bold my-5 border border-danger border-3 rounded p-3">Voce perdeu! :(</div>
+        </div>
+        <div class="row mt-2 justify-content-center">
+            <template v-if="!iniciar">
+                <button type="button" class="btn btn-primary w-auto" @click="iniciarJogo">INICIAR NOVO JOGO</button>
+            </template>
+            <template v-else> 
+                <button @click="atacar(false)" type="button" class="btn btn-danger w-auto m-1">ATACAR</button>
+                <button @click="atacar(true)" type="button" class="btn btn-warning w-auto m-1">ATAQUE ESPECIAL</button>
+                <button @click="guardaAberta" type="button" class="btn btn-success w-auto m-1">CURAR</button>
+                <button type="button" class="btn btn-secondary w-auto m-1" @click="finalizarJogo">DESISTIR</button>
+            </template>
+        </div>
+        <div v-if="logs.length" class="row logs mt-2">
+            <ul class="list-group">
+                <li class="list-group-item text-center text-white my-2" :class="log.cls" v-for="(log, chave) in logs" :key="chave">
+                    {{ log.acao }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
